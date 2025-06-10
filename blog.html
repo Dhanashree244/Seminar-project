@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TripBoss Travel Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f7f9fa;
+      color: #333;
+    }
+    header {
+      background: #00c9a7;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #d4fff8;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2.page-title {
+      text-align: center;
+      color: #00796b;
+      margin-bottom: 40px;
+    }
+    .blog-post {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-post:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    .blog-post img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+    .post-content {
+      padding: 20px 25px;
+      flex: 1;
+    }
+    .post-content h3 {
+      margin-top: 0;
+      color: #00c9a7;
+      font-weight: 600;
+    }
+    .post-content p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .read-more-btn {
+      background: #00c9a7;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .read-more-btn:hover {
+      background: #008c79;
+    }
+    footer {
+      background: #222;
+      color: white;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+    footer div {
+      margin: 15px;
+      max-width: 250px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Trip<span style="color:#004d40">Boss</span></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="page-title">Travel Insights & Stories</h2>
+
+    <article class="blog-post" onclick="window.location.href='blog-post1.html'">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Top 10 Beaches to Visit" />
+      <div class="post-content">
+        <h3>Top 10 Beaches to Visit in 2025</h3>
+        <p>Discover the most breathtaking beaches around the world perfect for your next summer getaway. From pristine white sands to hidden coves, these spots are sure to relax your soul.</p>
+        <a class="read-more-btn" href="blog-post1.html">Read More</a>
+      </div>
+    </article>
+
+    <article class="blog-post" onclick="window.location.href='blog-post2.html'">
+      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Packing Tips for Light Travelers" />
+      <div class="post-content">
+        <h3>Packing Tips for Light Travelers</h3>
+        <p>Travel smarter with our essential packing hacks to keep your luggage light, organized, and ready for any adventure.</p>
+        <a class="read-more-btn" href="blog-post2.html">Read More</a>
+      </div>
+    </article>
+
+    <article class="blog-post" onclick="window.location.href='blog-post3.html'">
+      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Exploring Hidden Gems in Europe" />
+      <div class="post-content">
+        <h3>Exploring Hidden Gems in Europe</h3>
+        <p>Skip the tourist traps and dive into Europe's lesser-known towns and villages that are rich with history, culture, and charm.</p>
+        <a class="read-more-btn" href="blog-post3.html">Read More</a>
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div>
+      <h3>Trip<span style="color:#00c9a7">Boss</span></h3>
+      <p>Your trusted travel companion for amazing adventures worldwide.</p>
+    </div>
+    <div>
+      <h4>Follow us on:</h4>
+      <p>Facebook | Instagram | Twitter | Pinterest</p>
+    </div>
+    <div>
+      <h4>Popular Places:</h4>
+      <p>Thailand, Australia, Maldives, Switzerland, Germany</p>
+    </div>
+    <div>
+      <h4>Subscribe for Newsletter!</h4>
+      <input type="email" placeholder="Enter Email" />
+      <button>Subscribe</button>
+    </div>
+  </footer>
+</body>
+</html>

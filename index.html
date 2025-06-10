@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TripBoss Travel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f7f9fa;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      user-select: none;
+    }
+    header h1 span:first-child {
+      color: #000;
+    }
+    header h1 span:last-child {
+      color: #00c9a7;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 1rem;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #00c9a7;
+      left: 0;
+      bottom: -6px;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    nav a:hover {
+      color: #00c9a7;
+    }
+
+    .hero {
+      height: 90vh;
+      background: url('https://media.istockphoto.com/id/1526986072/photo/airplane-flying-over-tropical-sea-at-sunset.jpg?s=612x612&w=0&k=20&c=Ccvg3BqlqsWTT0Mt0CvHlbwCuRjPAIWaCLMKSl3PCks=') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 2s ease-in;
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .hero h2 {
+      font-size: 3.5rem;
+      margin: 0;
+      text-shadow: 1.5px 1.5px 6px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(90deg, #ff005a, #ffba00, #00c9a7, #005aff, #d400ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      user-select: none;
+    }
+    .hero p {
+      margin-top: 20px;
+      font-weight: 600;
+      font-size: 1.25rem;
+      text-shadow: 0 0 4px rgba(0,0,0,0.4);
+    }
+
+    .search-box {
+      background: rgba(0,0,0,0.65);
+      padding: 25px 30px;
+      border-radius: 14px;
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      max-width: 700px;
+      width: 100%;
+    }
+    .search-box input, .search-box button {
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1.1rem;
+      outline-offset: 2px;
+      transition: outline-color 0.3s;
+      font-weight: 500;
+    }
+    .search-box input {
+      width: 180px;
+      max-width: 100%;
+      border: 2px solid transparent;
+      background-color: #f7f9fa;
+      color: #333;
+    }
+    .search-box input:focus {
+      border-color: #00c9a7;
+      outline: none;
+      background-color: #fff;
+      box-shadow: 0 0 10px #00c9a7aa;
+    }
+    .search-box button {
+      background: #00c9a7;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      width: 150px;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 5px 15px #00c9a7aa;
+    }
+    .search-box button:hover {
+      background: #00b49b;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px #00b49baa;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      background: #fff;
+      flex-grow: 1;
+    }
+    .section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #00c9a7;
+      font-weight: 700;
+    }
+
+    .features, .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      width: 300px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card:hover img {
+      transform: scale(1.05);
+    }
+    .card-content {
+      padding: 20px 22px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-content h4 {
+      margin: 0 0 12px;
+      font-size: 1.3rem;
+      color: #00c9a7;
+      font-weight: 700;
+    }
+    .card-content p {
+      font-size: 1rem;
+      color: #555;
+      flex-grow: 1;
+      line-height: 1.4;
+    }
+    .card-content button {
+      margin-top: 15px;
+      background: #00c9a7;
+      color: white;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+      align-self: flex-start;
+    }
+    .card-content button:hover {
+      background: #00b49b;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 40px;
+      user-select: none;
+    }
+    footer div {
+      margin: 0 10px;
+      max-width: 280px;
+    }
+    footer h3, footer h4 {
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: #00c9a7;
+      user-select: text;
+    }
+    footer p {
+      font-size: 1rem;
+      line-height: 1.4;
+      user-select: text;
+    }
+    footer input {
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 8px;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 500;
+      outline-offset: 2px;
+      transition: box-shadow 0.3s;
+    }
+    footer input:focus {
+      outline: none;
+      box-shadow: 0 0 10px #00c9a7aa;
+    }
+    footer button {
+      background: #00c9a7;
+      color: white;
+      padding: 12px 0;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      width: 100%;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+    footer button:hover {
+      background: #00b49b;
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+      nav a {
+        margin: 0 10px;
+        font-size: 0.95rem;
+      }
+      .features, .services {
+        gap: 20px;
+      }
+      .card {
+        width: 100%;
+        max-width: 350px;
+      }
+      .search-box {
+        flex-direction: column;
+        padding: 25px 20px;
+      }
+      .search-box input, .search-box button {
+        width: 100%;
+        margin: 5px 0;
+      }
+      footer {
+        flex-direction: column;
+        gap: 25px;
+      }
+      footer div {
+        max-width: 100%;
+      }
+    }
+
+    /* Search results container */
+    #searchResults {
+      max-width: 700px;
+      margin: 30px auto 60px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 25px 30px;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      color: #444;
+      display: none; /* Initially hidden */
+      user-select: text;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><span>Trip</span><span>Boss</span></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="#contact">Contact</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h2>Leave Your Footprints</h2>
+    <p>Choose your Travel location:</p>
+    <div class="search-box">
+      <input type="text" id="destination" placeholder="Destination name" />
+      <input type="text" id="date" placeholder="MM/DD/YYYY" />
+      <input type="number" id="price" placeholder="Price ($)" min="0" />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <!-- Search results container -->
+    <div id="searchResults"></div>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?fm=jpg&q=60&w=3000" alt="Hotel" />
+        <div class="card-content">
+          <h4>Luxurious Hotel</h4>
+          <p>Elegance and comfort, redefined.</p>
+          <button onclick="location.href='luxury-hotel.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://plus.unsplash.com/premium_photo-1718146018997-a1059f9f9420?fm=jpg&q=60&w=3000" alt="Guide" />
+        <div class="card-content">
+          <h4>Travel Guide</h4>
+          <p>Guided journeys, unforgettable stories.</p>
+          <button onclick="location.href='travel-guide.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://okcredit-blog-images-prod.storage.googleapis.com/2020/09/shutterstock_282871847.jpg" alt="Price" />
+        <div class="card-content">
+          <h4>Suitable Price</h4>
+          <p>Luxury that fits your budget.</p>
+          <button onclick="location.href='suitable-price.html'">Read more</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <h2>Featured Places</h2>
+    <div class="features">
+      <div class="card" tabindex="0">
+        <img src="https://media.istockphoto.com/id/518230906/photo/christ-the-redeemer-in-rio-de-janeiro.jpg?s=612x612&w=0&k=20&c=cCDx5OfxxdLTLLBJmDLCm75JRj1uqFNqbb7J3wZ-ms8=" alt="Rio" />
+        <div class="card-content">
+          <h4>Rio De Janeiro, Brazil</h4>
+          <p>Vibrant views and samba vibes.</p>
+          <button onclick="location.href='rio.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://www.shutterstock.com/image-photo/sydney-australia-october-20-2023-600nw-2465212583.jpg" alt="Australia" />
+        <div class="card-content">
+          <h4>North Bondi, Australia</h4>
+          <p>Beach bliss and ocean thrills.</p>
+          <button onclick="location.href='northbondi.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://media.istockphoto.com/id/489776362/photo/berlin-skyline-panorama-with-tv-tower-at-sunset-germany.jpg?s=612x612&w=0&k=20&c=Ng6cNc_9FEtoA1Go3P86ltVsy_-yoAZWcANCQr2ftGs=" alt="Berlin" />
+        <div class="card-content">
+          <h4>Berlin, Germany</h4>
+          <p>History, culture, and nightlife.</p>
+          <button onclick="location.href='berlin.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://images.goway.com/production/styles/wide/s3/hero_image/iStock-1475846187.jpg" alt="Thailand" />
+        <div class="card-content">
+          <h4>Wat Arun, Thailand</h4>
+          <p>Tranquil temples meet tropical beauty.</p>
+          <button onclick="location.href='wat-arun.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://media.istockphoto.com/id/539115110/photo/colosseum-in-rome-and-morning-sun-italy.jpg?s=612x612&w=0&k=20&c=9NtFxHI3P2IBWRY9t0NrfPZPR4iusHmVLbXg2Cjv9Fs=" alt="Rome" />
+        <div class="card-content">
+          <h4>Rome, Italy</h4>
+          <p>Walk through history in the Eternal City.</p>
+          <button onclick="location.href='rome-italy.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWPRW5QQ--6kRIQ5lUg2IJXj0KYMoTmGJw3w&s" alt="Maldives" />
+        <div class="card-content">
+          <h4>Fuvahmulah, Maldives</h4>
+          <p>Secluded paradise above crystal waters.</p>
+          
+          <button onclick="location.href='fuvahmulah-maldives.html'">Read more</button>
+</div>
+</div>
+</div>
+</section>
+
+<footer id="contact">
+  <div>
+    <h3>TripBoss Travel</h3>
+    <p>Your go-to platform for planning unforgettable trips and exploring the world's most beautiful destinations.</p>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <p><a href="index.html" style="color: #fff; text-decoration: none;">Home</a></p>
+    <p><a href="about.html" style="color: #fff; text-decoration: none;">About</a></p>
+    <p><a href="blog.html" style="color: #fff; text-decoration: none;">Blog</a></p>
+    <p><a href="login.html" style="color: #fff; text-decoration: none;">Login</a></p>
+  </div>
+  <div>
+    <h4>Contact Us</h4>
+    <p>Email: support@tripboss.com</p>
+    <p>Phone: +1-800-555-TRIP</p>
+    <p>Location: Global Travel HQ, Wander Street, Earth</p>
+  </div>
+  <div>
+    <h4>Subscribe</h4>
+    <input type="email" placeholder="Enter your email" />
+    <button>Subscribe</button>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('searchBtn').addEventListener('click', function() {
+    const destination = document.getElementById('destination').value.trim();
+    const date = document.getElementById('date').value.trim();
+    const price = document.getElementById('price').value.trim();
+    const resultDiv = document.getElementById('searchResults');
+
+    if (destination || date || price) {
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `
+        <h3>Search Results</h3>
+        <p><strong>Destination:</strong> ${destination || 'Any'}</p>
+        <p><strong>Date:</strong> ${date || 'Flexible'}</p>
+        <p><strong>Price:</strong> ${price ? '$' + price : 'Any'}</p>
+        <p style="margin-top: 20px;">No matching results found. Try adjusting your filters.</p>
+      `;
+    } else {
+      resultDiv.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
+
+      

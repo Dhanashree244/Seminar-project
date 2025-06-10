@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TripBoss Travel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1><span>Trip</span><span>Boss</span></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="#contact">Contact</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h2>Leave Your Footprints</h2>
+    <p>Choose your Travel location:</p>
+    <div class="search-box">
+      <input type="text" id="destination" placeholder="Destination name" />
+      <input type="text" id="date" placeholder="MM/DD/YYYY" />
+      <input type="number" id="price" placeholder="Price ($)" min="0" />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <!-- Search results container -->
+    <div id="searchResults"></div>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?fm=jpg&q=60&w=3000" alt="Hotel" />
+        <div class="card-content">
+          <h4>Luxurious Hotel</h4>
+          <p>Elegance and comfort, redefined.</p>
+          <button onclick="location.href='luxury-hotel.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://plus.unsplash.com/premium_photo-1718146018997-a1059f9f9420?fm=jpg&q=60&w=3000" alt="Guide" />
+        <div class="card-content">
+          <h4>Travel Guide</h4>
+          <p>Guided journeys, unforgettable stories.</p>
+          <button onclick="location.href='travel-guide.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://okcredit-blog-images-prod.storage.googleapis.com/2020/09/shutterstock_282871847.jpg" alt="Price" />
+        <div class="card-content">
+          <h4>Suitable Price</h4>
+          <p>Luxury that fits your budget.</p>
+          <button onclick="location.href='suitable-price.html'">Read more</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <h2>Featured Places</h2>
+    <div class="features">
+      <div class="card" tabindex="0">
+        <img src="https://media.istockphoto.com/id/518230906/photo/christ-the-redeemer-in-rio-de-janeiro.jpg?s=612x612&w=0&k=20&c=cCDx5OfxxdLTLLBJmDLCm75JRj1uqFNqbb7J3wZ-ms8=" alt="Rio" />
+        <div class="card-content">
+          <h4>Rio De Janeiro, Brazil</h4>
+          <p>Vibrant views and samba vibes.</p>
+          <button onclick="location.href='rio.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://www.shutterstock.com/image-photo/sydney-australia-october-20-2023-600nw-2465212583.jpg" alt="Australia" />
+        <div class="card-content">
+          <h4>North Bondi, Australia</h4>
+          <p>Beach bliss and ocean thrills.</p>
+          <button onclick="location.href='northbondi.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://media.istockphoto.com/id/489776362/photo/berlin-skyline-panorama-with-tv-tower-at-sunset-germany.jpg?s=612x612&w=0&k=20&c=Ng6cNc_9FEtoA1Go3P86ltVsy_-yoAZWcANCQr2ftGs=" alt="Berlin" />
+        <div class="card-content">
+          <h4>Berlin, Germany</h4>
+          <p>History, culture, and nightlife.</p>
+          <button onclick="location.href='berlin.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://images.goway.com/production/styles/wide/s3/hero_image/iStock-1475846187.jpg" alt="Thailand" />
+        <div class="card-content">
+          <h4>Wat Arun, Thailand</h4>
+          <p>Tranquil temples meet tropical beauty.</p>
+          <button onclick="location.href='wat-arun.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://media.istockphoto.com/id/539115110/photo/colosseum-in-rome-and-morning-sun-italy.jpg?s=612x612&w=0&k=20&c=9NtFxHI3P2IBWRY9t0NrfPZPR4iusHmVLbXg2Cjv9Fs=" alt="Rome" />
+        <div class="card-content">
+          <h4>Rome, Italy</h4>
+          <p>Walk through history in the Eternal City.</p>
+          <button onclick="location.href='rome-italy.html'">Read more</button>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWPRW5QQ--6kRIQ5lUg2IJXj0KYMoTmGJw3w&s" alt="Maldives" />
+        <div class="card-content">
+          <h4>Fuvahmulah, Maldives</h4>
+          <p>Secluded paradise above crystal waters.</p>
+          <button onclick="location.href='fuvahmulah-maldives.html'">Read more</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div>
+      <h3>TripBoss Travel</h3>
+      <p>Your go-to platform for planning unforgettable trips and exploring the world's most beautiful destinations.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <p><a href="index.html" style="color: #fff; text-decoration: none;">Home</a></p>
+      <p><a href="about.html" style="color: #fff; text-decoration: none;">About</a></p>
+      <p><a href="blog.html" style="color: #fff; text-decoration: none;">Blog</a></p>
+      <p><a href="login.html" style="color: #fff; text-decoration: none;">Login</a></p>
+    </div>
+    <div>
+      <h4>Contact Us</h4>
+      <p>Email: support@tripboss.com</p>
+      <p>Phone: +1-800-555-TRIP</p>
+      <p>Location: Global Travel HQ, Wander Street, Earth</p>
+    </div>
+    <div>
+      <h4>Subscribe</h4>
+      <input type="email" placeholder="Enter your email" />
+      <button>Subscribe</button>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
